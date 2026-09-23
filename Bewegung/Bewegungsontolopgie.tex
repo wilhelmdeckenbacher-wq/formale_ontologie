@@ -1,0 +1,64 @@
+\documentclass[11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath, amssymb, amsthm}
+\usepackage{mathtools}
+
+\newtheorem{definition}{Definition}
+\newtheorem{theorem}{Theorem}
+
+\title{Bewegungsontologie}
+\author{}
+\date{}
+
+\begin{document}
+\maketitle
+
+\section*{Grundbegriffe}
+
+\paragraph{Sorten.}
+Es gibt zwei Grundbereiche (Sorten):
+\begin{itemize}
+  \item $S$ -- die Sukzessionen, frei erzeugt durch die Konstante $s_1$ und die einstellige Nachfolgerfunktion $N : S \to S$;
+  \item $B$ -- die Bewegungen, ein primitiver Bereich.
+\end{itemize}
+
+\paragraph{Primitives Prädikat.}
+$$E \subseteq B \times S, \qquad E(\delta,s) \;:\; \text{``}\delta\text{ existiert in } s\text{''}$$
+
+\paragraph{Ordnungsrelation $\prec$ auf $S$ (rekursiv definiert).}
+\begin{align}
+\prec(s,\, N(s')) &\;:\Longleftrightarrow\; (s = s') \vee \prec(s,s') \\
+\prec(s,\, s_1)    &\;:\Longleftrightarrow\; \bot
+\end{align}
+
+\section*{Definitionen}
+
+\begin{definition}[Notwendigkeit]
+$$Nw(\delta,s) \;:\Longleftrightarrow\; E(\delta,s)$$
+\end{definition}
+
+\begin{definition}[Unmöglichkeit]
+$$Um(\delta,s) \;:\Longleftrightarrow\; \neg\, E(\delta,s)$$
+\end{definition}
+
+\begin{definition}[Möglichkeit]
+$$Mo(\delta,s) \;:\Longleftrightarrow\; E(\delta,s)$$
+\end{definition}
+
+\begin{definition}[Energie]
+$$En(\delta,s) \;:\Longleftrightarrow\; \neg\, Mo(\delta,s) \;\wedge\; \exists s'.\big(\prec(s,s') \wedge Nw(\delta,s')\big)$$
+\end{definition}
+
+\section*{Theorem}
+
+\begin{theorem}
+$$\forall \delta \, \forall s.\; E(\delta,s) \rightarrow Nw(\delta,s)$$
+\end{theorem}
+
+\begin{proof}
+Sei $\delta \in B$ und $s \in S$ mit $E(\delta,s)$. Nach Definition von $Nw$ gilt
+$$Nw(\delta,s) \Longleftrightarrow E(\delta,s),$$
+also folgt $Nw(\delta,s)$ unmittelbar aus der Voraussetzung. $\blacksquare$
+\end{proof}
+
+\end{document}
